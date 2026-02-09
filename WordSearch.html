@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Puzzle Game 🧩</title>
+  <style>
+  .puzzle-img {
+  width: 650px;
+  height: auto;
+  border-radius: 12px;
+  margin-top: 20px;
+}
+
+.user-input {
+  width: 80%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+.submit-btn {
+  margin-top: -500px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 12px;
+  border: none;
+  background: #ff4081;
+  color: white;
+  cursor: pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+  <h1>🧩 Puzzle Game</h1>
+  <p>Solve the puzzle here…</p>
+  <img src="PUZZLE.png" alt="Puzzle Image" class="puzzle-img">
+
+
+  <a href="surprise-04.html">⬅ Back to games</a>
+
+</script>
+<body>
+
+<input type="text" id="answer" placeholder="Enter a word" class="user-input">
+<button onclick="checkAnswer()" class="submit-btn">Submit</button>
+
+<p id="result"></p>
+
+
+<script>
+  function checkAnswer() {
+    const correctAnswers = [
+      "harsh",
+      "suhana",
+      "happy",
+      "smile",
+      "gratefull",
+      "buddy",
+      "friends",
+      "twenty",
+      "amazing",
+      "birthday"
+    ];
+
+    let userAnswer = document.getElementById("answer").value
+      .trim()
+      .toLowerCase();
+
+    if (correctAnswers.includes(userAnswer)) {
+      document.getElementById("result").innerText =
+        "🎉 Correct! You found a word!";
+    } else {
+      document.getElementById("result").innerText =
+        "❌ Not found. Try another word!";
+    }
+  }
+</script>
+
+</body>
+</html>

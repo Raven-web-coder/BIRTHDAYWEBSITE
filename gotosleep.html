@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Life Store 🛒</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+    }
+
+    header {
+      background: #ff4081;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-size: 22px;
+    }
+
+    .container {
+      display: flex;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .products, .cart {
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .products {
+      flex: 2;
+    }
+
+    .cart {
+      flex: 1;
+    }
+
+    .item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 8px;
+    }
+
+    .item button {
+      background: #ff4081;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 6px 12px;
+      cursor: pointer;
+    }
+
+    .item button:hover {
+      background: #ff6f9c;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .summary {
+      margin-top: 15px;
+      font-size: 16px;
+    }
+
+    .summary div {
+      margin: 6px 0;
+    }
+
+    .checkout {
+      margin-top: 15px;
+      width: 100%;
+      padding: 10px;
+      background: #4caf50;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .checkout:hover {
+      background: #66bb6a;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>🛒 Shopping </header>
+
+<div class="container">
+
+  <!-- PRODUCTS -->
+  <div class="products">
+    <h2>Products</h2>
+
+    <div class="item"><span>🤝 Friendship</span><button onclick="addToCart('Friendship', 0)">Add</button></div>
+    <div class="item"><span>😊 Happiness</span><button onclick="addToCart('Happiness', 0)">Add</button></div>
+    <div class="item"><span>❤️ Love</span><button onclick="addToCart('Love', 0)">Add</button></div>
+    <div class="item"><span>💖 Care</span><button onclick="addToCart('Care', 0)">Add</button></div>
+    <div class="item"><span>🎒 Adventure</span><button onclick="addToCart('Adventure', 0)">Add</button></div>
+    <div class="item"><span>⚡ Energy</span><button onclick="addToCart('Energy', 0)">Add</button></div>
+    <div class="item"><span>⏳ Time</span><button onclick="addToCart('Time', 0)">Add</button></div>
+    <div class="item"><span>📚 Education</span><button onclick="addToCart('Education', 0)">Add</button></div>
+    <div class="item"><span>👨‍👩‍👧‍👦 Family</span><button onclick="addToCart('Family', 0)">Add</button></div>
+
+    <div class="item"><span>😠 Hate</span><button onclick="addToCart('Hate', 1000)">Add</button></div>
+    <div class="item"><span>⚔️ Enemy</span><button onclick="addToCart('Enemy', 1000)">Add</button></div>
+  </div>
+
+  <!-- CART -->
+  <div class="cart">
+    <h2>🛍️ Cart</h2>
+    <ul id="cartItems"></ul>
+
+    <div class="summary">
+      <div>Subtotal: ₹<span id="subtotal">0</span></div>
+      <div>GST (18%): ₹<span id="gst">0</span></div>
+      <div><strong>Total: ₹<span id="total">0</span></strong></div>
+    </div>
+
+    <button class="checkout" onclick="checkout()">Checkout</button>
+  </div>
+
+</div>
+
+<script>
+  let subtotal = 0;
+  const gstRate = 0.18;
+
+  function addToCart(item, price) {
+    const li = document.createElement("li");
+    li.textContent = item + " - ₹" + price;
+    document.getElementById("cartItems").appendChild(li);
+
+    subtotal += price;
+    updateTotals();
+  }
+
+  function updateTotals() {
+    const gst = subtotal * gstRate;
+    const total = subtotal + gst;
+
+    document.getElementById("subtotal").innerText = subtotal.toFixed(2);
+    document.getElementById("gst").innerText = gst.toFixed(2);
+    document.getElementById("total").innerText = total.toFixed(2);
+  }
+
+  function checkout() {
+    alert(
+      "🎉 Checkout Successful!\n\n" +
+      "Hate and enemies cost money.\n" +
+      "Everything that truly matters in life is FREE ❤️(AI ne bola ese likhne ko 😅) \n\n" +
+      "Happy Birthday harshu 🎂\n"+
+      "I Hope You Have Enjoyed It\n"+
+      "THANK YOU!!"
+    );
+
+    window.location.href = "end.html";
+
+  }
+</script>
+
+</body>
+</html>
+
